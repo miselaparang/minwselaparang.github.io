@@ -40,7 +40,7 @@ footer {
 /* hp */
 @media (max-width: 576px) {
   #portfolio img {
-    padding: 5px;
+    padding: 5px !important;
   }
 
   #about h5,
