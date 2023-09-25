@@ -5,6 +5,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!-- bootstrap css -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
     <!-- my css -->
     <link rel="stylesheet" href="css/style.css" />
@@ -20,7 +22,7 @@
       <nav class="teal accent-2">
         <div class="container">
           <div class="nav-wrapper">
-            <a href="#home" class="brand-logo">MI NW Selaparang</a>
+            <a href="#home" class="brand-logo">MIS</a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="#about">Tentang Kami</a></li>
@@ -62,7 +64,7 @@
           </div>
         </li>
         <li>
-          <img src="img/slider/anak-prm.jpg" />
+          <img src="img/slider/6.jpeg" />
           <div class="caption center-align">
             <h3>MI NW Selaparang</h3>
             <h5 class="light grey-text text-lighten-3">Maju, Berkarya, Berakhlak mulia</h5>
@@ -116,10 +118,13 @@
       <div class="container clients">
         <h3 class="center light white-text">Afiliasi</h3>
         <div class="row">
-          <div class="col m6 s12 center">
+          <div class="col m4 s4 center">
             <img src="img/afiliasi/kemenag.png" alt="kemenag" />
           </div>
-          <div class="col m6 s12 center">
+          <div class="col m4 s4 center">
+            <img src="img/afiliasi/LOGO DENGAN BHS. ARAB.png" alt="Yayasan" />
+          </div>
+          <div class="col m4 s4 center">
             <img src="img/afiliasi/nw.jpg" alt="nw" />
           </div>
         </div>
@@ -213,21 +218,23 @@
             <div class="card-panel teal accent-2 center">
               <i class="material-icons medium white-text">email</i>
               <h5>Kontak</h5>
-              <p>Apabila anda ingin menghubungi kami, bisa melalui sekretariat MI NW Selaparang atau mengisi form di samping.</p>
+              <p>Untuk informasi lebih lanjut, silahkan hubungi kami melalui sekretariat MI NW Selaparang atau mengisi form berikut.</p>
             </div>
             <ul class="collection with-header">
-              <li class="collection-header"><h4>Kantor</h4></li>
-              <li class="collection-item">Sekretariat MI NW Selaparang</li>
-              <li class="collection-item">Jl. TGH Abdul Hafidz Kediri, Desa Kediri Selatan, Kec. Kediri, Kab. Lombok Barat.</li>
-              <li class="collection-item">Nusa Tenggara Barat, Indonesia.</li>
+              <li class="collection-header center">
+                <h4>Sekretariat MI NW Selaparang</h4>
+              </li>
+              <!-- <li class="collection-item center">Sekretariat MI NW Selaparang</li> -->
+              <li class="collection-item center"><i class="small material-icons">pin_drop</i><br />Jl. TGH Abdul Hafidz Kediri, Desa Kediri Selatan, Kec. Kediri, Kab. Lombok Barat.</li>
+              <li class="collection-item center">Nusa Tenggara Barat, Indonesia.</li>
             </ul>
           </div>
           <div class="col m7 s12">
-            <form>
+            <form name="pesan-dari-website">
               <div class="card-panel">
                 <h5>Silahkan isi form ini</h5>
                 <div class="input-field">
-                  <input type="text" name="name" id="name" required class="validate" />
+                  <input type="text" name="nama" id="name" required class="validate" />
                   <label for="name">Nama</label>
                 </div>
                 <div class="input-field">
@@ -235,16 +242,35 @@
                   <label for="email">Email</label>
                 </div>
                 <div class="input-field">
-                  <input type="text" name="phone" id="phone" />
+                  <input type="text" name="telepon" id="phone" />
                   <label for="phone">Nomor Telepon/HP</label>
                 </div>
                 <div class="input-field">
-                  <textarea name="message" id="message" class="materialize-textarea"></textarea>
+                  <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                   <label for="message">Pesan/Pertanyaan</label>
                 </div>
-                <button type="submit" class="btn blue darken-2">Kirim</button>
+                <button type="submit" class="btn blue darken-2 btn-kirim">Kirim</button>
+                <!-- tombol loading -->
+                <div class="preloader-wrapper small active btn-sukses hide">
+                  <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- akhir tombol loading -->
+                <!-- <button type="submit" class="btn preloader-wrapper active btn-sukses hide">Kirim</button> -->
               </div>
             </form>
+            <div class="card-panel teal accent-2 center hide my-alert">
+              <p>Pesan Anda Telah Sukses Dikirim!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -280,6 +306,36 @@
       const scroll = document.querySelectorAll(".scrollspy");
       M.ScrollSpy.init(scroll, {
         scrollOffset: 50,
+      });
+    </script>
+
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbw0cwPVbnhKU8KUCCZAZ3JHolPjWniLo8x6JWfxLiWDv253Y3D_eTdVXXcOWzuFHG8L/exec";
+      const form = document.forms["pesan-dari-website"];
+
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnSukses = document.querySelector(".btn-sukses");
+      const myAlert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // ketika tombol kirim diklik
+        // tampilkan tombol sukses, hilangkan tombol kirim
+        btnSukses.classList.toggle("hide");
+        btnKirim.classList.toggle("hide");
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // tampilkan tombol kirim lagi, hilangkan tombol sukses
+            btnSukses.classList.toggle("hide");
+            btnKirim.classList.toggle("hide");
+            // tampilkan alert
+            myAlert.classList.toggle("hide");
+            console.log("Success!", response);
+            // reset form
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
       });
     </script>
   </body>

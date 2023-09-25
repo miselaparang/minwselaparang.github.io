@@ -33,7 +33,23 @@ section {
   font-weight: bold;
 } */
 
-section,
 footer {
-  padding: 20px 0;
+  padding: 10px 0;
+}
+
+/* hp */
+@media (max-width: 576px) {
+  #portfolio img {
+    padding: 5px !important;
+  }
+
+  #about h5,
+  #about p {
+    text-align: center;
+  }
+
+  .clients img {
+    width: 100px;
+    height: 100px;
+  }
 }
